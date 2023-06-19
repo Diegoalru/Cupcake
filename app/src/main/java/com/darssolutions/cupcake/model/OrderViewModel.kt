@@ -15,22 +15,26 @@ import java.util.Locale
 class OrderViewModel : ViewModel() {
 
     // region Properties
-    private var _quantity = MutableLiveData<Int>(0)
+    private var _quantity = MutableLiveData<Int>()
     val quantity: LiveData<Int> = _quantity
 
-    private var _flavor = MutableLiveData<String>("")
+    private var _flavor = MutableLiveData<String>()
     val flavor: LiveData<String> = _flavor
 
-    private var _date = MutableLiveData<String>("")
+    private var _date = MutableLiveData<String>()
     val date: LiveData<String> = _date
 
-    private var _price = MutableLiveData<Double>(0.0)
+    private var _price = MutableLiveData<Double>()
     val price: LiveData<Double> = _price
 
     val dateOptions = getPickupOptions()
 // endregion
 
     // region Methods
+    init {
+        resetOrder()
+    }
+
     fun setQuantity(numOfCakes: Int) {
         _quantity.value = numOfCakes
     }
@@ -47,7 +51,14 @@ class OrderViewModel : ViewModel() {
         return _flavor.value.isNullOrEmpty()
     }
 
-    fun getPickupOptions(): List<String> {
+    private fun resetOrder() {
+        _quantity.value = 0
+        _flavor.value = ""
+        _date.value = dateOptions[0]
+        _price.value = 0.0
+    }
+
+    private fun getPickupOptions(): List<String> {
         val options = mutableListOf<String>()
         val formatter = SimpleDateFormat("E MMM d", Locale.getDefault())
         val calendar = Calendar.getInstance()
