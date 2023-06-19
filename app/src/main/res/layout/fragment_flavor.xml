@@ -33,30 +33,35 @@
                     android:id="@+id/vanilla"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:checked="@{() -> viewModel.setFlavor(@string/vanilla)}"
                     android:text="@string/vanilla" />
 
                 <RadioButton
                     android:id="@+id/chocolate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:checked="@{() -> viewModel.setFlavor(@string/chocolate)}"
                     android:text="@string/chocolate" />
 
                 <RadioButton
                     android:id="@+id/red_velvet"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:checked="@{() -> viewModel.setFlavor(@string/red_velvet)}"
                     android:text="@string/red_velvet" />
 
                 <RadioButton
                     android:id="@+id/salted_caramel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:checked="@{() -> viewModel.setFlavor(@string/salted_caramel)}"
                     android:text="@string/salted_caramel" />
 
                 <RadioButton
                     android:id="@+id/coffee"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:checked="@{() -> viewModel.setFlavor(@string/coffee)}"
                     android:text="@string/coffee" />
             </RadioGroup>
 
