@@ -9,6 +9,10 @@
         <variable
             name="viewModel"
             type="com.darssolutions.cupcake.model.OrderViewModel" />
+
+        <variable
+            name="flavorFragment"
+            type="com.darssolutions.cupcake.FlavorFragment" />
     </data>
 
 
@@ -86,9 +90,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/side_margin"
+                android:text="@{@string/subtotal_price(viewModel.price)}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/divider"
-                android:text="@{@string/subtotal_price(viewModel.price)}"
                 tools:text="Subtotal $5.00" />
 
             <Button
@@ -96,6 +100,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/side_margin"
+                android:onClick="@{() -> flavorFragment.goToNextScreen()}"
                 android:text="@string/next"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

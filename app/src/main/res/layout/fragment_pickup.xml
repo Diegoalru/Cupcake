@@ -5,9 +5,14 @@
     tools:context=".PickupFragment">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.darssolutions.cupcake.model.OrderViewModel" />
+
+        <variable
+            name="pickupFragment"
+            type="com.darssolutions.cupcake.PickupFragment" />
     </data>
 
     <ScrollView
@@ -91,6 +96,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/side_margin"
+                android:onClick="@{() -> pickupFragment.goToNextScreen()}"
                 android:text="@string/next"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
