@@ -3,6 +3,8 @@ package com.darssolutions.cupcake.model
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.map
+import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -28,7 +30,9 @@ class OrderViewModel : ViewModel() {
     val date: LiveData<String> = _date
 
     private var _price = MutableLiveData<Double>()
-    val price: LiveData<Double> = _price
+    val price: LiveData<String> = _price.map { price ->
+        NumberFormat.getCurrencyInstance().format(price)
+    }
 
     val dateOptions = getPickupOptions()
 
