@@ -1,0 +1,8 @@
+Mejoras:
+ * Ofrece una variante especial que tenga ciertas condiciones especiales, como no estar disponible para retirar en el mismo día.
+ * Cambiar el formato de la fecha.
+ * Pídele al usuario su nombre para el pedido de cupcakes.
+ * Permite que el usuario seleccione diferentes variantes de cupcakes para su pedido si la cantidad es superior a 1 cupcake.
+ * Pídele al usuario su dirección, teléfono y correo electrónico para el pedido de cupcakes.
+ * Pídele al usuario que confirme su pedido antes de enviarlo.
+ * Dado que el valor es en dólares, calcula el valor según el tipo de cambio del día según la moneda local del usuario.
