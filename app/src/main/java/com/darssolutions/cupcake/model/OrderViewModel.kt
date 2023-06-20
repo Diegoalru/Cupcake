@@ -73,6 +73,7 @@ class OrderViewModel : ViewModel() {
      */
     private fun getPickupOptions(): List<String> {
         val options = mutableListOf<String>()
+        // TODO: Mostrar otro formato de fecha.
         val formatter = SimpleDateFormat("E MMM d", Locale.getDefault())
         val calendar = Calendar.getInstance()
 
