@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.darssolutions.cupcake.databinding.FragmentSummaryBinding
 import com.darssolutions.cupcake.model.OrderViewModel
 
@@ -47,6 +48,14 @@ class SummaryFragment : Fragment() {
      */
     fun sendOrder() {
         Toast.makeText(activity, "Send Order", Toast.LENGTH_SHORT).show()
+    }
+
+    /**
+     * Cancel the order and start over.
+     */
+    fun cancelOrder() {
+        sharedViewModel.resetOrder()
+        findNavController().navigate(R.id.action_summaryFragment_to_startFragment)
     }
 
     /**
