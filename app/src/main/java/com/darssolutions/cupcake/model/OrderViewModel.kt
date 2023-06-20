@@ -7,6 +7,8 @@ import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 
+private const val PRICE_PER_CUPCAKE = 2.00
+
 /**
  * ViewModel containing all the order details, including the quantity, flavor, date, and price.
  * This class is used to share data between the screens of the app.
@@ -28,6 +30,7 @@ class OrderViewModel : ViewModel() {
     val price: LiveData<Double> = _price
 
     val dateOptions = getPickupOptions()
+
 // endregion
 
     // region Methods
@@ -37,6 +40,7 @@ class OrderViewModel : ViewModel() {
 
     fun setQuantity(numOfCakes: Int) {
         _quantity.value = numOfCakes
+        updatePrice()
     }
 
     fun setFlavor(desiredFlavor: String) {
@@ -58,6 +62,9 @@ class OrderViewModel : ViewModel() {
         _price.value = 0.0
     }
 
+    /**
+     * Returns a list of dates starting with the current date and the following 3 days.
+     */
     private fun getPickupOptions(): List<String> {
         val options = mutableListOf<String>()
         val formatter = SimpleDateFormat("E MMM d", Locale.getDefault())
@@ -70,6 +77,10 @@ class OrderViewModel : ViewModel() {
         }
 
         return options
+    }
+
+    private fun updatePrice() {
+        _price.value = (quantity.value ?: 0) * PRICE_PER_CUPCAKE
     }
 // endregion
 }
